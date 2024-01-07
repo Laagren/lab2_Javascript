@@ -1,0 +1,24 @@
+body{
+    background-color: white;
+}
+
+.quizPage{
+    height: 100vh;
+}
+
+#mainForm{
+    margin-right: 25%;
+    margin-left: 25%;
+    width: 50%;
+    background-color: rgba(233, 233, 233, 0.63);
+}
+
+.question{
+    text-align: center;
+    
+}
+
+.question h2{
+    font-size: 22px;
+    
+}
