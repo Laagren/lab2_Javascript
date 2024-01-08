@@ -3,15 +3,27 @@ body{
     margin: 0%;
     padding-left: 20%;
     padding-right: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .banner{
     /*border-bottom: 2px solid black;*/
     /*box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.418);*/
-    margin: 10px 0px 10px 0px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.37);
+    padding: 5px 0px 5px 0px;
     width: 100%;
     text-align: center;
-    background-color: rgba(233, 233, 233, 0.63);
+    color: white;
+    
+    /*background-color: rgba(233, 233, 233, 0.63);*/
+    background-color: rgb(0, 204, 255);
+    text-shadow: 2px 2px 4px #000;
+}
+
+.banner h1{
+    margin: 0px;
 }
 
 
@@ -24,6 +36,8 @@ body{
     justify-content: start;
     align-items: center;
     flex-grow: 0%;*/
+    max-width: 600px;
+
 }
 
 .question{
@@ -31,29 +45,29 @@ body{
  
     border-bottom: 1px solid rgba(0, 0, 0, 0.103);
     /*height: 18vh;*/
-
-    padding: 5%;
+    width: 100%;
+    padding: 10px 0px 10px 0px;
     /*display: flex;
     flex-direction: column;
     border-radius: 15px;
     margin-top: 40px;
     background-color: white;
     box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.342);*/
-    max-width: 500px;
+    
 }
 
 .question h2{
     font-size: 22px; 
-    margin-top: 0px;
+    margin: 0px 5px 5px 5px;
 }
 
 .question p{
-    margin-top: 0px;
+    margin: 5px;   
 }
 
 .question label{
     display: block;
-    margin: 5px 0px 5px 0px;
+    margin: 9px 0px 9px 0px;
 }
 
 @media screen and (min-width:1280px){
@@ -62,6 +76,34 @@ body{
     }
     body{
         background-color: rgba(0, 0, 255, 0.205);
+    }
+    .question{
+       
+    }
+}
+
+@media screen and (max-width:780px){
+    .main{
+
+    }
+    body{
+        background-color: rgba(0, 255, 64, 0.205);
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    .question{
+       
+    }
+}
+
+@media screen and (max-width:600px){
+    .main{
+
+    }
+    body{
+        background-color: rgba(255, 0, 170, 0.205);
+        padding-left: 0%;
+        padding-right: 0%;
     }
     .question{
        
