@@ -1,5 +1,5 @@
 body{
-    background-color: white;
+    background-color: rgba(233, 233, 233, 0.63);
     margin: 0%;
     padding-left: 20%;
     padding-right: 20%;
@@ -11,15 +11,17 @@ body{
 .banner{
     /*border-bottom: 2px solid black;*/
     /*box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.418);*/
-    border-bottom: 1px solid rgba(0, 0, 0, 0.37);
+    border-bottom: 3px solid rgb(255, 255, 255);
     padding: 5px 0px 5px 0px;
     width: 100%;
     text-align: center;
     color: white;
     
     /*background-color: rgba(233, 233, 233, 0.63);*/
-    background-color: rgb(0, 204, 255);
+    background-color: rgba(31, 20, 6, 0.856);
     text-shadow: 2px 2px 4px #000;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
 }
 
 .banner h1{
@@ -30,34 +32,44 @@ body{
 #mainForm{
     width: 100%;
     background-color: rgba(233, 233, 233, 0.63);
-    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.445);
+    border: 3px solid white;
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.24);
     /*display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
     flex-grow: 0%;*/
-    max-width: 600px;
+    height: 100%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
 
+    align-items: center;
+    border-radius: 10px;
+    margin:10px;
 }
 
 .question{
     text-align: center;
- 
     border-bottom: 1px solid rgba(0, 0, 0, 0.103);
-    /*height: 18vh;*/
-    width: 100%;
-    padding: 10px 0px 10px 0px;
+    
+    width: 80%;
+    /*padding: 10px 0px 10px 0px;*/
+    border: 1px solid rgba(0, 0, 0, 0.384);
+    border-radius: 10px;
     /*display: flex;
     flex-direction: column;
     border-radius: 15px;
     margin-top: 40px;
-    background-color: white;
-    box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.342);*/
-    
+    background-color: white;*/
+    margin: 10px;
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.219);
+    display: flex;
+    flex-direction: column;
 }
 
 .question h2{
-    font-size: 22px; 
+    font-size: 19px; 
     margin: 0px 5px 5px 5px;
 }
 
@@ -65,17 +77,68 @@ body{
     margin: 5px;   
 }
 
-.question label{
-    display: block;
-    margin: 9px 0px 9px 0px;
+
+label{
+    display: inline-block;
 }
+
+.radioContainer{
+    display: flex;
+    padding-left: 2%;
+    margin: 5px 5px 5px 15px;
+    padding: 5px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.295);
+}
+
+.textboxContainer{
+    display: flex;
+    padding-left: 2%;
+    margin: 5px 5px 5px 15px;
+    padding: 5px;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+.textboxContainer input{
+    width: 100%;
+}
+
+
+.questionText{   
+    background-color: rgba(92, 68, 31, 0.315);
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.384);
+    height: 25%;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.questionText h2{
+    display: inline;
+    margin: 0px;
+
+}
+
+.questionText p{
+    text-align: center;
+    display: inline;
+    margin: 10px;
+}
+
+.question button{
+    width: 35%;
+    margin: 10px;
+}
+
 
 @media screen and (min-width:1280px){
     .main{
 
     }
     body{
-        background-color: rgba(0, 0, 255, 0.205);
+        /*background-color: rgba(0, 0, 255, 0.205);*/
     }
     .question{
        
@@ -87,7 +150,7 @@ body{
 
     }
     body{
-        background-color: rgba(0, 255, 64, 0.205);
+        /*background-color: rgba(0, 255, 64, 0.205);*/
         padding-left: 10%;
         padding-right: 10%;
     }
