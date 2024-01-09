@@ -1,84 +1,93 @@
 var myForm = document.getElementById("mainForm");
-var infoBoxes = document.getElementsByName("info");
 var submitBtn = document.getElementById("submitBtn");
+var requiredFields = document.getElementsByClassName("required");
+var stars = document.getElementsByName("star");
 var infoFilled = false;
-
+var numRequiredInputs = 5;
+var correctAnswers = 0;
+var numQuestions = 5;
+var allowedChars = /^[a-zA-Z]+$/;
 
 // Personal info variables
 var fName = document.getElementById("fname");
 var lName = document.getElementById("lname");
 var email = document.getElementById("email");
-var fNameStar = document.getElementById("fNameStar");
-var lNameStar = document.getElementById("lNameStar");
-var emailStar = document.getElementById("emailStar");
+const names = [ fName, lName];
 
-const requiredFields = [fName, lName, email];
+
+document.addEventListener('DOMContentLoaded', function(){
+    submitBtn.disabled = true;
+})
+
 
 myForm.addEventListener("submit", function(event){
-    event.preventDefault();
-    //alert("Please fill all the required fields to submit answer");
+    event.preventDefault();  
+    
+    // Check first and last name for only letters.
+    try
+    {    
+        if(ValidateNames() && ValidateEmail())
+        {
+            console.log("Submit");
+            alert(correctAnswers+"/"+numQuestions + " answers correct!");
+            myForm.reset();
+            location.reload();
+        }    
+    }
+    catch(error)
+    {
+        alert("Failed to validate input: " + error);
+    }   
 });
 
-
-// Required input fields.
-// Check if they are empty or not.
-/*fName.addEventListener("keyup", function(){
-    infoKeyDownCheck(fName, fNameStar);
-});
-
-lName.addEventListener("keyup", function(){
-    infoKeyDownCheck(lName, lNameStar);
-});
-
-email.addEventListener("keyup", function(){
-    infoKeyDownCheck(email, emailStar);
-});*/
-
-
-
-
-
-/*let amountFilled = 0;
-for(let i = 0; i < infoFields.length; i++)
+function ValidateEmail()
 {
-    let length = infoFields[i].length;
-    console.log("Value of info box["+ i + "]: " + length);
-
-    if(length > 0)
-    {
-        star.style.color = "green";
-        amountFilled++;
-    }
-    else
-    {
-        star.style.color = "red";
-    }
+    return true;
 }
 
-console.log("Amount infofields filled: " + amountFilled);
-if(amountFilled === infoFields.length)
+function ValidateNames()
 {
-    infoFilled = true;
-}*/
+    let shouldAlert = false;   
+    names.forEach(name => {
+        if(!allowedChars.test(name.value))
+        {
+            shouldAlert = true;
+            name.style.backgroundColor = "rgba(255, 0, 0, 0.15)";
+        }
+        else{
+            name.style.backgroundColor = "white";
+        }     
+    });
 
-
-
-
-
-
-
-
-/*function infoKeyDownCheck(infoBox, star)
-{
-    let length = infoBox.value.length;
-    console.log("Value of current info box: " + length);
-
-    if(length > 0)
+    if(shouldAlert)
     {
-        star.style.color = "green";
+        alert("Warning: Name field(s) contain non letter characters.");
+        return false;
+    } 
+    return true;
+}
+// Check if all required are filled.
+// If filled, enable submit button.
+myForm.addEventListener("change", function(){
+    let fillCounter = 0;
+    for(let i = 0; i < requiredFields.length; i++)
+    {     
+        var input = requiredFields[i];
+        
+        if((input.type === 'radio' && input.checked)
+            || (input.type=== "text" && input.value.length > 0)
+            || (input.type === "email" && input.value.length > 0))
+        {
+            console.log("Type: " + input.type + ", value: " + input.value + " filled");
+            //stars[i].style.color = "green";
+            fillCounter++;
+        }
     }
-    else
+
+    console.log(fillCounter);
+    if(fillCounter === numRequiredInputs)
     {
-        star.style.color = "red";
+        submitBtn.disabled = false;
     }
-}*/
+    else submitBtn.disabled = true;
+});

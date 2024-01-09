@@ -11,23 +11,32 @@
                 <h1>Quiz</h1>
             </div>
             
+            <div class="infoText">
+                <ul>
+                    <li>Question marked with '<b>*</b>' must be answered.</li>
+                    <li>Fill out your personal information at the end in order to submit your answers.</li>
+                </ul>
+            </div>
+
             
             <div class="question">
                 <div class="questionText">
                     <h2>1</h2>
-                    <p><u>What</u>  answer?</p>
+                    <p>Select the correct answer</p>
                 </div>           
                 <div class="radioContainer">
                     <input type="radio" id="q1o1" name="question1" value="option1">
-                    <label> Option 1</label>
+                    <label for="q1o1"> x = 2</label>
                 </div>
+                <hr>
                 <div class="radioContainer">
                     <input type="radio" id="q1o2" name="question1" value="option2">
-                    <label>Option 2</label>
+                    <label for="q1o2">x = 9</label>
                 </div>
+                <hr>
                 <div class="radioContainer">
                     <input type="radio" id="q1o3" name="question1" value="option3">
-                    <label>Option 3</label>
+                    <label for="q1o3">x = 7</label>
                 </div>
             </div>
 
@@ -35,19 +44,21 @@
             <div class="question">
                 <div class="questionText">
                     <h2>2</h2>
-                    <p><u>Which ansasgasgasgwers</u> are correct?</p>
+                    <p>Select the correct answer(s)</p>
                 </div>                      
                 <div class="radioContainer">
                     <input type="checkbox" id="q2o1" name="question2" value="option1">
-                    <label> Option 1</label>
+                    <label for="q2o1"> Option 1</label>
                 </div>
+                <hr>
                 <div class="radioContainer">
                     <input type="checkbox" id="q2o2" name="question2" value="option2">
-                    <label>Option 2</label>
+                    <label for="q2o2">Option 2</label>
                 </div>
+                <hr>
                 <div class="radioContainer">
                     <input type="checkbox" id="q2o3" name="question2" value="option3">
-                    <label>Option 3</label>
+                    <label for="q2o3">Option 3</label>
                 </div>         
             </div>
 
@@ -55,19 +66,21 @@
             <div class="question">
                 <div class="questionText">
                     <h2>3</h2>
-                    <p>What is the answer?</p>
+                    <p>Select the correct answer?</p>
                 </div>                  
                 <div class="radioContainer">
                     <input type="radio" id="q3o1" name="question3" value="option1">
-                    <label> Option 1 </label>
+                    <label for="q3o1"> Option 1 </label>
                 </div>
+                <hr>
                 <div class="radioContainer">
                     <input type="radio" id="q3o2" name="question3" value="option2">
-                    <label>Option 2 </label>
-                </div>              
+                    <label for="q3o2">Option 2 </label>
+                </div>   
+                <hr>           
                 <div class="radioContainer">
                     <input type="radio" id="q3o3" name="question3" value="option3">
-                    <label>Option 3</label>
+                    <label for="q3o3">Option 3</label>
                 </div>           
             </div>
 
@@ -75,11 +88,11 @@
             <div class="question">
                 <div class="questionText">
                     <h2>4</h2>
-                    <p>What is the answer?</p>   
-                    <span style="color: red" id="q4Star" name="star">*</span>        
+                    <p>Is this true or false?</p>   
+                    <span style="color: black" id="q4Star" name="star">*</span>        
                 </div>             
                 <div class="textboxContainer">
-                    <input type="text" id="q3o1" name="question3" value="">                 
+                    <input type="text" id="q4" name="question3" value="" placeholder="True/False"  class="required">                 
                 </div>
             </div>
 
@@ -87,20 +100,22 @@
             <div class="question">
                 <div class="questionText">
                     <h2>5</h2>
-                    <p>What is the answer?</p>
-                    <span style="color: red" id="q3Star" name="star">*</span>
+                    <p>Select the correct answer</p>
+                    <span style="color: black" id="q3Star" name="star">*</span>
                 </div>     
                 <div class="radioContainer">
-                    <input type="radio" id="q3o1" name="question3" value="option1">
-                    <label for="q3o1">Option 123</label>
-                </div>    
+                    <input type="radio" id="q5o1" name="question3" value="option1" class="required">
+                    <label for="q5o1">Option 123</label>
+                </div>  
+                <hr>  
                 <div class="radioContainer">
-                    <input type="radio" id="q3o2" name="question3" value="option2">
-                    <label for="q3o2">Option 2</label>
+                    <input type="radio" id="q5o2" name="question3" value="option2" class="required">
+                    <label for="q5o2">Option 2</label>
                 </div>    
+                <hr>
                 <div class="radioContainer">
-                    <input type="radio" id="q3o3" name="question3" value="option3">
-                    <label>Option 3</label>
+                    <input type="radio" id="q5o3" name="question3" value="option3" class="required">
+                    <label for="q5o3">Option 3</label>
                 </div>
             </div>
 
@@ -110,20 +125,20 @@
                     <p>Enter your information</p>
                 </div>
                 <div class="textboxContainer">
-                    <input type="text" id="fname" name="info" placeholder="First Name">
-                    <span style="color: red" id="fNameStar" name="star">*</span>
+                    <input type="text" id="fname" name="info" placeholder="First Name" class="required">
+                    <span style="color: black" id="fNameStar" name="star">*</span>
                 </div>       
                 <div class="textboxContainer">
-                    <input type="text" id="lname" name="info" placeholder="Last Name"> 
-                    <span style="color:red" id="lNameStar" name="star">*</span>
+                    <input type="text" id="lname" name="info" placeholder="Last Name" class="required"> 
+                    <span style="color:black" id="lNameStar" name="star">*</span>
                 </div>
                 <div class="textboxContainer">
-                    <input type="email" id="email" name="info" placeholder="Email">           
-                    <span style="color:red" id="emailStar" name="star">*</span>
+                    <input type="email" id="email" name="info" placeholder="Email" class="required">           
+                    <span style="color:black" id="emailStar" name="star">*</span>
                 </div>
                 <!--<input type="button" value="Submit" id="submitBtn">-->
                 <div>
-                    <button value="submit">Submit Answers</button>
+                    <button value="submit" id="submitBtn">Submit Answers</button>
                 </div>               
             </div>         
         </form>

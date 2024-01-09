@@ -29,6 +29,26 @@ body{
     margin: 0px;
 }
 
+.infoText{
+    margin: 15px;
+    width: 65%;
+    font-size: 14px;
+    padding: 5px 10px 5px 20px;
+
+    border: 1px solid black;
+}
+
+.infoText ul{
+
+   padding-left: 10px;
+   margin: 0px;
+}
+
+
+.infoText ul li{
+
+    padding: 7px;
+ }
 
 #mainForm{
     width: 100%;
@@ -88,7 +108,7 @@ label{
     padding-left: 2%;
     margin: 5px 5px 5px 15px;
     padding: 5px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.295);
+    /*border-bottom: 1px solid rgba(0, 0, 0, 0.295);*/
 }
 
 .textboxContainer{
@@ -133,6 +153,12 @@ label{
     margin: 10px;
 }
 
+hr{
+    width: 100%;
+    margin: 0px;
+    color: rgba(0, 0, 0, 0.452);
+}
+
 
 @media screen and (min-width:1280px){
     .main{
@@ -165,7 +191,7 @@ label{
 
     }
     body{
-        background-color: rgba(255, 0, 170, 0.205);
+        /*background-color: rgba(255, 0, 170, 0.205);*/
         padding-left: 0%;
         padding-right: 0%;
     }
