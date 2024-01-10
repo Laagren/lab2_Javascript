@@ -22,18 +22,15 @@ var answers = ["2", "||u||·||v||cos(θ)", "300000000","F", "Fs"];
 const names = [fName, lName];
 
 // Settings
-var allowedChars = /^[a-zA-Z]+$/;
-var numRequiredInputs = 5;
+const allowedChars = /^[a-zA-Z]+$/;
+const allowedName =  /^[a-zA-Z0-9._-]+$/;
+const allowedDom = /^[a-zA-Z0-9-]+$/;
+
+const numRequiredInputs = 5;
 var infoFilled = false;
 var correctAnswers = 0;
-var numQuestions = 5;
-
+const numQuestions = 5;
 //#endregion
-
-
-
-
-
 
 //#region Events
 // Disable submit button at load of page.
@@ -55,7 +52,6 @@ mainForm.addEventListener("submit", function(event){
 });
 //#endregion
 
-
 //#region Methods
 function TrySubmit()
 {  
@@ -67,7 +63,8 @@ function TrySubmit()
             CalculateScore();
             alert(correctAnswers+"/"+numQuestions + " answers correct!");
             mainForm.reset();
-            //location.reload();
+            correctAnswers = 0;
+            location.reload();
         }    
     }
     catch(error)
@@ -101,20 +98,47 @@ function CalculateScore()
                 currentAnswer = inputs.value.toUpperCase();
             }
 
-            console.log("current answer: " + currentAnswer + ", Correct: " + answers[answerIndex]);
+            //console.log("current answer: " + currentAnswer + ", Correct: " + answers[answerIndex]);
 
             if(currentAnswer === answers[answerIndex])
             {
                 correctAnswers++;         
             }
-            console.log("incrementing answer index");
+            //console.log("incrementing answer index");
             answerIndex++;
         });
 }
 
+
+// Validate email input and return bool.
+// Alert user if wrong email is entered.
 function ValidateEmail()
 {
-    return true;
+    try
+    {
+        let splitOnAt = email.value.toString().split('@');
+        let stringToTest = splitOnAt[0];
+
+        if(splitOnAt.length > 0 && allowedName.test(stringToTest)
+        && allowedChars.test(stringToTest[0]))
+        {
+            let splitOnDot = splitOnAt[1].split('.');
+            stringToTest = splitOnDot[0];
+            
+            if(splitOnDot.length > 0 && splitOnDot.length !== 1
+                && allowedDom.test(stringToTest) && splitOnDot[1].length > 2)
+            {
+                return true;
+            }        
+        }
+
+        alert("Warning: Email address contains unvalid characters or has an invalid format.");
+        return false;
+    }
+    catch(error)
+    {
+        alert("Unable to validate email address, " + error);
+    }
 }
 
 
@@ -142,6 +166,7 @@ function ValidateNames()
     return true;
 }
 
+
 // Check if all required are filled.
 // If filled, enable submit button.
 function CheckRequiredInputs()
@@ -155,13 +180,11 @@ function CheckRequiredInputs()
             || (input.type=== "text" && input.value.length > 0)
             || (input.type === "email" && input.value.length > 0))
         {
-            //console.log("Type: " + input.type + ", value: " + input.value + " filled");
-            //stars[i].style.color = "green";
             fillCounter++;
         }
     }
 
-    console.log(fillCounter);
+    //console.log(fillCounter);
     if(fillCounter === numRequiredInputs)
     {
         submitBtn.disabled = false;
